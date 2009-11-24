@@ -13,7 +13,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 =head1 SYNOPSIS
@@ -101,6 +101,13 @@ sub is_valid {
     
     my $remainder              = $sum % 11;
     my $calculated_check_digit = 11 - $remainder;
+    
+    ##
+    ## If check digit is 11, reset it to zero.
+    
+    if ( $calculated_check_digit == 11 ) {
+        $calculated_check_digit = 0;
+    }
     
     ##
     ## If the calculated check digit is not equal 

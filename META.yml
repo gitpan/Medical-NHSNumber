@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Medical-NHSNumber
-version:            0.01
+version:            0.02
 abstract:           Check if an NHS number is valid
 author:
     - Dr Spiros Denaxas <s.denaxas@gmail.com>
