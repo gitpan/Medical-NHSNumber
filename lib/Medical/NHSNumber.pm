@@ -9,11 +9,11 @@ Medical::NHSNumber - Check if an NHS number is valid
 
 =head1 VERSION
 
-Version 0.01
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
@@ -92,11 +92,12 @@ sub is_valid {
     ## their weighted factor.    
     
     my $sum;
-    
+    my $n = 0;
     foreach my $digit ( @digits ){
-        my $weight = $RH_WEIGHTS->{ $digit };
+        my $weight = $RH_WEIGHTS->{ $n };
         my $weighted_digit = $weight * $digit;
         $sum += $weighted_digit;
+        $n++;
     }
     
     my $remainder              = $sum % 11;
@@ -161,6 +162,10 @@ L<http://cpanratings.perl.org/d/Medical-NHSNumber>
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/Medical-NHSNumber/>
+
+=item * Source code
+
+The source code can be found on github L<https://github.com/spiros/Medical-NHSNumber>
 
 =back
 
